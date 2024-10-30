@@ -1,0 +1,50 @@
+spring:
+  data:
+    redis:
+      port: 6379
+      host: localhost
+  application:
+    name: game_0_demo
+  datasource:
+    hikari:
+      maximum-pool-size: 60
+      connection-timeout: 60000
+      validation-timeout: 3000
+      max-lifetime: 600000
+      login-timeout: 30
+      maximum-idle: 60
+      minimum-idle: 10
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/game0?useUnicode=true&characterEncoding=utf-8&useSSL=true&jdbcCompliantTruncation=false&allowMultiQueries=true
+    username: root
+    password: 123456
+  jackson:
+    time-format: yyyy-MM-dd HH:mm:ss
+server:
+  port: 8888
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+user:
+  domain: "http://localhost:8888"
+  auto-login: true
+  auto-logout-time: 86400
+
+jwt:
+  token-key: "0F0a0l0s0e0"
+  token-expire: 86400
+filter:
+  # filter used on
+  auth-needed-api: "/user/logout,/user/update/*,/user/delete,/user/info,/bl0ck/*,/guess/*"
+
+game0:
+  bl0ck:
+    map0:
+      default-view-size: 10
+    every-independent0-get-score: 50
+    auto-create-map0: true
+logging:
+  level:
+    root: DEBUG
+  file:
+    name: useless.log
